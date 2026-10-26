@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>골미클럽 연대기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e6; --surface:#fffdf8; --surface-2:#efe8d8; --ink:#1d2a22; --ink-2:#4d5a50; --ink-3:#7b857c;
+  --green:#1f4a33; --green-2:#2e6b4a; --gold:#b8892f; --line:#ddd3bf; --hero-ink:#fff;
+  --p1:#2a78d6; --p2:#eb6834; --p3:#1baf7a; --p4:#eda100; --p5:#e87ba4;
+  --shadow:0 1px 2px rgba(30,40,30,.06),0 8px 24px rgba(30,40,30,.08);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a16; --surface:#1c241e; --surface-2:#243027; --ink:#eef0ea; --ink-2:#c2c9bf; --ink-3:#8c968b;
+  --green:#7fc49c; --green-2:#5aa57c; --gold:#e0b45a; --line:#2f3c33;
+  --p1:#3987e5; --p2:#d95926; --p3:#199e70; --p4:#c98500; --p5:#d55181;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3); color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#141a16; --surface:#1c241e; --surface-2:#243027; --ink:#eef0ea; --ink-2:#c2c9bf; --ink-3:#8c968b;
+  --green:#7fc49c; --green-2:#5aa57c; --gold:#e0b45a; --line:#2f3c33;
+  --p1:#3987e5; --p2:#d95926; --p3:#199e70; --p4:#c98500; --p5:#d55181;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3); color-scheme:dark;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Gowun Batang",serif;letter-spacing:-.01em;margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+/* nav */
+nav.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:18px;height:56px}
+nav.top .brand{font-family:"Gowun Batang",serif;font-weight:700;font-size:18px;color:var(--green);white-space:nowrap;text-decoration:none}
+nav.top .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav.top .links::-webkit-scrollbar{display:none}
+nav.top .links a{text-decoration:none;font-size:14px;color:var(--ink-2);padding:6px 10px;border-radius:999px;white-space:nowrap}
+nav.top .links a:hover,nav.top .links a.on{background:var(--surface-2);color:var(--ink)}
+#themeBtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;width:34px;height:34px;cursor:pointer;flex:none}
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:var(--hero-ink);overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;filter:saturate(1.05)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,25,15,.15) 0%,rgba(10,25,15,.25) 45%,rgba(8,20,12,.85) 100%)}
+.hero .inner{position:relative;z-index:1;padding:0 20px 56px;max-width:1180px;margin:0 auto;width:100%}
+.hero .kicker{letter-spacing:.3em;font-size:12px;opacity:.85;text-transform:uppercase}
+.hero h1{font-size:clamp(44px,8vw,96px);line-height:1.05;margin:10px 0 14px}
+.hero p.sub{font-size:clamp(16px,2vw,20px);max-width:640px;opacity:.92;margin:0}
+.counters{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:36px;max-width:900px}
+.counter{border-top:1px solid rgba(255,255,255,.35);padding-top:10px}
+.counter b{display:block;font-size:clamp(24px,3.4vw,38px);font-family:"Gowun Batang",serif;font-variant-numeric:tabular-nums}
+.counter span{font-size:13px;opacity:.85}
+/* sections */
+section.sec{padding:84px 0 24px}
+.sec-head{margin-bottom:28px}
+.sec-head .num{color:var(--gold);font-family:"Gowun Batang",serif;font-size:15px;letter-spacing:.15em}
+.sec-head h2{font-size:clamp(28px,4vw,42px);margin-top:4px}
+.sec-head p{color:var(--ink-2);max-width:720px;margin:8px 0 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}
+.chip{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);margin:2px 4px 2px 0}
+.muted{color:var(--ink-3)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:6px}
+/* members */
+.members{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.member{padding:20px;position:relative;overflow:hidden}
+.member .avatar{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:"Gowun Batang",serif;font-size:22px;font-weight:700}
+.member h3{font-size:22px;margin:12px 0 2px}
+.member .role{font-size:13px;color:var(--ink-3)}
+.member .nick{margin:10px 0}
+.member dl{display:grid;grid-template-columns:1fr auto;gap:4px 8px;font-size:13px;margin:12px 0 0}
+.member dt{color:var(--ink-2)} .member dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
+.member .quote{font-family:"Gowun Batang",serif;font-size:14px;color:var(--ink-2);margin-top:12px;border-left:3px solid var(--gold);padding-left:10px}
+/* timeline */
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:20px}
+.seg{display:inline-flex;background:var(--surface-2);border-radius:999px;padding:3px;flex-wrap:wrap}
+.seg button{border:0;background:none;color:var(--ink-2);font:inherit;font-size:14px;padding:6px 14px;border-radius:999px;cursor:pointer}
+.seg button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12);font-weight:700}
+label.toggle{font-size:14px;color:var(--ink-2);display:flex;align-items:center;gap:6px;cursor:pointer;margin-left:auto}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.year-mark{font-family:"Gowun Batang",serif;font-size:34px;color:var(--green);margin:28px 0 14px -28px;padding-left:0}
+.ev{position:relative;margin:0 0 14px;padding:16px 18px}
+.ev::before{content:"";position:absolute;left:-26px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--green-2)}
+.ev.big::before{background:var(--gold);border-color:var(--gold)}
+.ev .meta{font-size:13px;color:var(--ink-3);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ev h3{font-size:19px;margin:4px 0 6px}
+.ev p{margin:0;color:var(--ink-2);font-size:15px}
+.ev .thumbs{display:flex;gap:6px;margin-top:12px;overflow-x:auto}
+.ev .thumbs img{height:92px;width:auto;border-radius:8px;cursor:zoom-in;flex:none;object-fit:cover}
+/* golf */
+.kpis{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.kpi{padding:18px}
+.kpi .lab{font-size:13px;color:var(--ink-2)}
+.kpi .val{font-family:"Gowun Batang",serif;font-size:34px;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.kpi .foot{font-size:12px;color:var(--ink-3)}
+.panel{padding:20px}
+.panel h3{font-size:20px;margin-bottom:4px}
+.panel .desc{font-size:13px;color:var(--ink-3);margin:0 0 14px}
+.two{grid-template-columns:1fr 1fr}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.chart-box{position:relative;height:340px}
+.chart-box.sm{height:260px}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:500;color:var(--ink-2);font-size:13px}
+.tscroll{overflow-x:auto}
+td.best{font-weight:900;color:var(--green)}
+.h2h td{text-align:center}
+.h2h td.cell{font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--ink-2);margin-bottom:10px}
+.legend button{border:0;background:none;font:inherit;color:inherit;cursor:pointer;padding:2px 0;display:flex;align-items:center}
+.legend button.off{opacity:.35}
+.fame{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.fame .item{padding:16px;display:flex;gap:12px}
+.fame .ico{font-size:28px;line-height:1}
+.fame b{display:block;font-size:15px}
+.fame span{font-size:13px;color:var(--ink-2)}
+.insights{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.insight{padding:14px 16px;border-left:4px solid var(--gold);background:var(--surface);border-radius:10px;font-size:14px;color:var(--ink-2)}
+.insight b{color:var(--ink)}
+.sc-link{cursor:zoom-in;text-decoration:underline dotted;color:var(--green-2)}
+/* stats */
+.awards{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.award{padding:16px;text-align:center}
+.award .ico{font-size:30px}
+.award .t{font-size:13px;color:var(--ink-3);margin-top:4px}
+.award .w{font-family:"Gowun Batang",serif;font-size:20px;font-weight:700}
+.award .v{font-size:13px;color:var(--ink-2)}
+.words{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:center;padding:10px}
+.words span{font-family:"Gowun Batang",serif;color:var(--green-2)}
+/* quotes */
+.quotes{columns:3 280px;column-gap:16px}
+.q{break-inside:avoid;margin:0 0 16px;padding:18px}
+.q blockquote{margin:0;font-family:"Gowun Batang",serif;font-size:18px;line-height:1.5}
+.q .by{margin-top:10px;font-size:13px;color:var(--ink-3)}
+.jokes{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.jokes .card{padding:16px;font-size:14px;color:var(--ink-2)}
+/* gallery */
+.gallery{columns:4 220px;column-gap:10px}
+.gallery figure{margin:0 0 10px;break-inside:avoid;position:relative;border-radius:10px;overflow:hidden;cursor:zoom-in;background:var(--surface-2)}
+.gallery figure img{width:100%;height:auto;transition:transform .4s}
+.gallery figure:hover img{transform:scale(1.03)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65));opacity:0;transition:opacity .25s}
+.gallery figure:hover figcaption{opacity:1}
+.videos{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.videos video{width:100%;border-radius:10px;background:#000;aspect-ratio:9/12;object-fit:cover}
+.videos .vd{font-size:12px;color:var(--ink-3);margin-top:4px}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(5,10,7,.92);z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+#lb.on{display:flex}
+#lb img{max-width:min(1200px,94vw);max-height:80vh;border-radius:8px;object-fit:contain}
+#lb .cap{color:#eee;margin-top:12px;font-size:14px;text-align:center}
+#lb button{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer}
+#lb .x{top:16px;right:16px} #lb .pv{left:16px;top:50%} #lb .nx{right:16px;top:50%}
+footer{padding:60px 0 80px;text-align:center;color:var(--ink-3);font-size:14px}
+footer .sig{font-family:"Gowun Batang",serif;font-size:22px;color:var(--ink);margin-bottom:6px}
+.more{display:block;margin:12px auto 0;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px 22px;border-radius:999px;font:inherit;cursor:pointer}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:6px;z-index:90;opacity:0;transition:opacity .1s}
+@media (max-width:640px){
+  .counters{grid-template-columns:repeat(3,1fr)}
+  .wrap{padding:0 16px}
+  .chart-box{height:280px}
+  label.toggle{margin-left:0}
+  .gallery{columns:2;column-gap:8px}
+  .award .w{font-size:17px}
+  .members{grid-template-columns:1fr 1fr}
+  .member{padding:14px}
+  .member h3{font-size:19px}
+}
+@media (max-width:420px){.members{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a class="brand" href="#top">⛳ 골미클럽</a>
+  <div class="links" id="navlinks">
+    <a href="#members">멤버</a><a href="#story">연대기</a><a href="#golf">골프 분석</a><a href="#rounds">라운드 기록</a><a href="#chat">대화 통계</a><a href="#quotes">명대사</a><a href="#gallery">갤러리</a>
+  </div>
+  <button id="themeBtn" title="라이트/다크 전환">◐</button>
+</div></nav>
+
+<header class="hero" id="top">
+  <img class="bg" src="photos/20250816_134610_274.jpg" alt="라비에벨 앞 다섯 친구">
+  <div class="inner">
+    <div class="kicker">Golmi Club · 2022 — 2026</div>
+    <h1>골미클럽 연대기</h1>
+    <p class="sub">허태회 · 김대중 · 이충호 · 박기홍 · 정성배.<br>"50줄에 이딴거 할 수 있는 친구가 있어 다행이다." 그 4년의 기록.</p>
+    <div class="counters" id="counters"></div>
+  </div>
+</header>
+
+<main>
+<section class="sec" id="members"><div class="wrap">
+  <div class="sec-head"><div class="num">01</div><h2>다섯 명의 골미들</h2><p>별명은 단톡방에서 실제로 불린 이름들이고, 숫자는 대화 기록과 스코어카드에서 모았어요.</p></div>
+  <div class="grid members" id="memberCards"></div>
+</div></section>
+
+<section class="sec" id="story"><div class="wrap">
+  <div class="sec-head"><div class="num">02</div><h2>우리가 지나온 길</h2><p>2022년 8월 28일, 홍짱이 충호형을 초대하던 날부터 2026년 10월까지. 라운드, 라베파티, 생일, 여행, 그리고 사소한 소동들.</p></div>
+  <div class="controls">
+    <div class="seg" id="yearSeg"></div>
+    <div class="seg" id="catSeg"></div>
+    <label class="toggle"><input type="checkbox" id="allEv"> 작은 이야기까지 모두 보기</label>
+  </div>
+  <div class="timeline" id="timeline"></div>
+</div></section>
+
+<section class="sec" id="golf"><div class="wrap">
+  <div class="sec-head"><div class="num">03</div><h2>골프 스코어 분석</h2><p>단톡방에 올라온 스코어카드 사진(스마트스코어·카카오골프·골프장 카드)과 대화 속 스코어로 정리한 필드 18홀 기록입니다. 동반하지 않은 개인 라운드도 포함하되, 맞대결·순위 통계는 멤버 2명 이상이 함께 친 라운드만 셉니다.</p></div>
+  <div class="grid kpis" id="golfKpis"></div>
+  <div class="insights" id="insights" style="margin-top:16px"></div>
+
+  <div class="grid" style="margin-top:16px">
+    <div class="card panel">
+      <h3>스코어 추이</h3><p class="desc">필드 18홀 타수, 낮을수록 좋아요. 점을 올리면 날짜와 골프장이 보이고, 이름을 누르면 숨기거나 다시 볼 수 있어요.</p>
+      <div class="legend" id="trendLegend"></div>
+      <div class="chart-box"><canvas id="trendChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid two" style="margin-top:16px">
+    <div class="card panel">
+      <h3>평균 vs 베스트</h3><p class="desc">스코어카드 기준 평균과 최저타</p>
+      <div class="chart-box sm"><canvas id="avgChart"></canvas></div>
+    </div>
+    <div class="card panel">
+      <h3>연도별 평균 타수</h3><p class="desc">해마다 평균이 어떻게 바뀌었는지</p>
+      <div class="tscroll"><table id="yearTable"></table></div>
+    </div>
+  </div>
+
+  <div class="grid two" style="margin-top:16px">
+    <div class="card panel">
+      <h3>맞대결 전적</h3><p class="desc">같이 친 라운드에서 행이 열을 이긴 횟수 – 진 횟수 (무승부)</p>
+      <div class="tscroll"><table class="h2h" id="h2hTable"></table></div>
+    </div>
+    <div class="card panel">
+      <h3>개인 상세 기록</h3><p class="desc">전반/후반은 홀별 카드가 있는 라운드 기준</p>
+      <div class="tscroll"><table id="detailTable"></table></div>
+    </div>
+  </div>
+
+  <div class="grid two" style="margin-top:16px">
+    <div class="card panel">
+      <h3>타수 분포</h3><p class="desc">어느 구간에서 가장 많이 쳤나</p>
+      <div class="chart-box sm"><canvas id="distChart"></canvas></div>
+    </div>
+    <div class="card panel">
+      <h3>자주 간 골프장</h3><p class="desc">함께 친 라운드 기준, 동반 평균 타수</p>
+      <div class="tscroll"><table id="venueTable"></table></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:24px;margin:40px 0 14px">명예의 전당</h3>
+  <div class="grid fame" id="fame"></div>
+</div></section>
+
+<section class="sec" id="rounds"><div class="wrap">
+  <div class="sec-head"><div class="num">04</div><h2>라운드 기록부</h2><p>스코어카드가 있는 라운드는 날짜를 누르면 원본 사진을 볼 수 있어요. 각 라운드에서 가장 잘 친 사람은 진하게 표시했어요.</p></div>
+  <div class="card panel"><div class="tscroll"><table id="roundTable"></table></div></div>
+  <div class="card panel" style="margin-top:16px">
+    <h3>스크린골프 명승부</h3><p class="desc">골프존·투비전 화면 기록. 닉네임은 리쉠보73 = 이충호, 낼름이글두방·넬름이글세방 = 김대중, 2023년싱글 = 박기홍, 뜨허 = 허태회로 매칭했어요.</p>
+    <div class="tscroll"><table id="screenTable"></table></div>
+  </div>
+</div></section>
+
+<section class="sec" id="chat"><div class="wrap">
+  <div class="sec-head"><div class="num">05</div><h2>단톡방 통계</h2><p>메시지 8,006개, 514일 동안의 대화를 세어 봤어요.</p></div>
+  <div class="grid awards" id="awards"></div>
+  <div class="grid" style="margin-top:16px">
+    <div class="card panel">
+      <h3>월별 대화량</h3><p class="desc">시즌이 오면 단톡방도 뜨거워져요. 막대에 올리면 사람별 숫자가 보여요.</p>
+      <div class="legend" id="monthLegend"></div>
+      <div class="chart-box"><canvas id="monthChart"></canvas></div>
+    </div>
+  </div>
+  <div class="grid two" style="margin-top:16px">
+    <div class="card panel">
+      <h3>시간대별 대화</h3><p class="desc">하루 중 언제 가장 많이 떠드는지 (전체 메시지 수)</p>
+      <div class="chart-box sm"><canvas id="hourChart"></canvas></div>
+    </div>
+    <div class="card panel">
+      <h3>요일별 대화</h3><p class="desc">주말 라운드 전후가 피크</p>
+      <div class="chart-box sm"><canvas id="weekChart"></canvas></div>
+    </div>
+  </div>
+  <div class="card panel" style="margin-top:16px">
+    <h3>단톡방 키워드</h3><p class="desc">자주 나온 단어일수록 크게</p>
+    <div class="words" id="words"></div>
+  </div>
+</div></section>
+
+<section class="sec" id="quotes"><div class="wrap">
+  <div class="sec-head"><div class="num">06</div><h2>명대사 & 단골 농담</h2><p>그때 그 말들.</p></div>
+  <div class="quotes" id="quoteList"></div>
+  <h3 style="font-size:24px;margin:30px 0 14px">우리끼리만 아는 이야기</h3>
+  <div class="grid jokes" id="jokes"></div>
+</div></section>
+
+<section class="sec" id="gallery"><div class="wrap">
+  <div class="sec-head"><div class="num">07</div><h2>사진첩</h2><p>단톡방에 올라온 사진 중 골라 담은 장면들. 누르면 크게 볼 수 있어요.</p></div>
+  <div class="controls"><div class="seg" id="galSeg"></div></div>
+  <div class="gallery" id="gal"></div>
+  <button class="more" id="galMore">더 보기</button>
+  <h3 style="font-size:24px;margin:40px 0 14px">영상</h3>
+  <div class="grid videos" id="videos"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="sig">"다들 건강 관리 잘 해서 오래오래 같이 치자!"</div>
+  <div>골미클럽 · 2022.08.28 – 2026.10.25 · 카카오톡 대화와 사진으로 만든 우리만의 기록</div>
+</div></footer>
+
+<div id="lb" role="dialog" aria-modal="true"><button class="x" aria-label="닫기">✕</button><button class="pv" aria-label="이전">‹</button><img alt=""><div class="cap"></div><button class="nx" aria-label="다음">›</button></div>
+<div class="tip" id="tip"></div>
+
+<script src="data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const D = window.DATA, N = D.names;
+const SHORT = {'허태회':'허프로','김대중':'김대','이충호':'쉠보','박기홍':'홍짱','정성배':'건희'};
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const PC = n => css('--p' + (N.indexOf(n) + 1));
+const $ = s => document.querySelector(s);
+const el = (t, a = {}, h = '') => { const e = document.createElement(t); Object.assign(e, a); if (h) e.innerHTML = h; return e; };
+const fmtD = d => d.replaceAll('-', '.');
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* theme */
+(() => {
+  let t = null; try { t = localStorage.getItem('golmi-theme'); } catch (e) {}
+  if (t) document.documentElement.dataset.theme = t;
+  $('#themeBtn').onclick = () => {
+    const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    const nt = dark ? 'light' : 'dark';
+    document.documentElement.dataset.theme = nt;
+    try { localStorage.setItem('golmi-theme', nt); } catch (e) {}
+    drawCharts();
+  };
+})();
+
+/* lightbox */
+const LB = { list: [], i: 0 };
+function openLB(list, i) { LB.list = list; LB.i = i; showLB(); $('#lb').classList.add('on'); }
+function showLB() { const it = LB.list[LB.i]; $('#lb img').src = it.src; $('#lb .cap').textContent = it.cap || ''; }
+$('#lb .x').onclick = () => $('#lb').classList.remove('on');
+$('#lb').onclick = e => { if (e.target.id === 'lb') $('#lb').classList.remove('on'); };
+$('#lb .pv').onclick = () => { LB.i = (LB.i - 1 + LB.list.length) % LB.list.length; showLB(); };
+$('#lb .nx').onclick = () => { LB.i = (LB.i + 1) % LB.list.length; showLB(); };
+document.addEventListener('keydown', e => {
+  if (!$('#lb').classList.contains('on')) return;
+  if (e.key === 'Escape') $('#lb').classList.remove('on');
+  if (e.key === 'ArrowLeft') $('#lb .pv').click();
+  if (e.key === 'ArrowRight') $('#lb .nx').click();
+});
+const capOf = f => (D.gallery.find(g => g.file === f) || {}).caption || '';
+
+/* counters */
+const fieldRounds = D.rounds.filter(r => r.group).length;
+const days = Math.round((new Date('2026-10-25') - new Date('2022-08-28')) / 864e5);
+[[days.toLocaleString(), '함께한 날들'], [D.stats.total.toLocaleString(), '주고받은 메시지'], [D.rounds.length + D.screen.length, '기록된 라운드'],
+ [Object.values(D.stats.kk).reduce((a, b) => a + b, 0).toLocaleString(), 'ㅋ의 개수'], [D.events.length, '모은 이야기']]
+ .forEach(([v, l]) => $('#counters').append(el('div', { className: 'counter' }, `<b>${v}</b><span>${l}</span>`)));
+
+/* members */
+const PROFILE = {
+  '허태회': { role: '골미 1호 · 맏형 · 교수팀', nick: ['허프로', '필드의 왕', '드허', '거함', '맏형', '허리분섭(자칭)'], quote: '지금 이시간은 다시 돌아오지 않는다.' },
+  '김대중': { role: '쉠보의 골프 스승 · 약사팀', nick: ['김대', '김프로', '중대장', '이글맨', 'DJ', '냉혈한', '애니콜'], quote: '우리에겐 내일은 없다 오늘이 마지막날' },
+  '이충호': { role: '골미 2호 · 총무 · 교수팀', nick: ['쉠보', '리쉠보', '충', '보리분섭', '잠맥', '마스크 골프맨'], quote: '역시 골프는 누구랑 치나가 가장 중요' },
+  '박기홍': { role: '장소 섭외의 마술사 · 약사팀', nick: ['홍짱', '로리박', '설신', '어홍', '고독한 미식가'], quote: '형님들과 함께하는 주말에서 한주 살아갈 에너지를 얻고 있다' },
+  '정성배': { role: '2025년 6월 합류 · 신입 골미', nick: ['건희', '거니', '정사장', '마발이'], quote: '훈련을 많이 하는건 반칙인데 ㅎ' },
+};
+N.forEach(n => {
+  const g = D.golf[n], p = PROFILE[n], s = D.stats;
+  const c = el('div', { className: 'card member' });
+  c.innerHTML = `<div class="avatar" style="background:${PC(n)}">${n[0]}</div>
+    <h3>${n}</h3><div class="role">${p.role}</div>
+    <div class="nick">${p.nick.map(x => `<span class="chip">${x}</span>`).join('')}</div>
+    <dl><dt>메시지</dt><dd>${s.per_person[n].toLocaleString()}</dd>
+    <dt>ㅋ 사용</dt><dd>${s.kk[n].toLocaleString()}</dd>
+    <dt>기록된 필드 라운드</dt><dd>${g.n}</dd>
+    <dt>스코어카드 평균</dt><dd>${g.avg ?? '-'}</dd>
+    <dt>라이프 베스트</dt><dd>${g.claimed}</dd></dl>
+    <div class="quote">“${p.quote}”</div>`;
+  $('#memberCards').append(c);
+});
+
+/* timeline */
+const CAT = { all: '전체', golf: '⛳ 골프', party: '🎉 생일·파티', trip: '✈️ 여행', life: '☕ 일상·기타' };
+const catOf = e => e.category.startsWith('golf') ? 'golf' : ['birthday', 'celebration', 'food_drink'].includes(e.category) ? 'party' : e.category === 'travel' ? 'trip' : 'life';
+const ICON = { golf_field: '⛳', golf_screen: '🖥️', golf_par3: '⛳', food_drink: '🍻', travel: '✈️', birthday: '🎂', celebration: '🎉', life: '☕', sports: '🏆', other: '💬' };
+const TL = { year: 'all', cat: 'all', all: false };
+const years = [...new Set(D.events.map(e => e.date.slice(0, 4)))];
+function seg(target, opts, key, onChange) {
+  target.innerHTML = '';
+  Object.entries(opts).forEach(([k, v]) => {
+    const b = el('button', { textContent: v }); if (k === key()) b.classList.add('on');
+    b.onclick = () => { onChange(k); seg(target, opts, key, onChange); };
+    target.append(b);
+  });
+}
+seg($('#yearSeg'), Object.fromEntries([['all', '전체'], ...years.map(y => [y, y])]), () => TL.year, k => { TL.year = k; renderTL(); });
+seg($('#catSeg'), CAT, () => TL.cat, k => { TL.cat = k; renderTL(); });
+$('#allEv').onchange = e => { TL.all = e.target.checked; renderTL(); };
+function renderTL() {
+  const box = $('#timeline'); box.innerHTML = '';
+  let lastY = null;
+  D.events.filter(e => (TL.year === 'all' || e.date.startsWith(TL.year)) && (TL.cat === 'all' || catOf(e) === TL.cat) && (TL.all || e.importance >= 3))
+    .forEach(e => {
+      const y = e.date.slice(0, 4);
+      if (y !== lastY) { box.append(el('div', { className: 'year-mark', textContent: y })); lastY = y; }
+      const c = el('article', { className: 'card ev' + (e.importance >= 5 ? ' big' : '') });
+      c.innerHTML = `<div class="meta"><span>${fmtD(e.date)}</span><span>${ICON[e.category] || '💬'}</span>${(e.people || []).map(p => `<span class="chip">${esc(p)}</span>`).join('')}</div>
+        <h3>${esc(e.title)}</h3><p>${esc(e.story)}</p>`;
+      if (e.photos && e.photos.length) {
+        const t = el('div', { className: 'thumbs' });
+        const list = e.photos.map(f => ({ src: 'photos/' + f, cap: capOf(f) }));
+        e.photos.forEach((f, i) => { const im = el('img', { src: 'photos/' + f, loading: 'lazy', alt: capOf(f) }); im.onclick = () => openLB(list, i); t.append(im); });
+        c.append(t);
+      }
+      box.append(c);
+    });
+}
+renderTL();
+
+/* golf kpis + insights */
+const G = D.golf;
+const groupR = D.rounds.filter(r => r.group);
+const totalBird = N.reduce((a, n) => a + G[n].birdies, 0);
+[['함께 친 필드 라운드', groupR.length, '스코어카드로 확인된 동반 라운드'],
+ ['기록된 개인 스코어', D.rounds.reduce((a, r) => a + Object.keys(r.scores).length, 0), '필드 18홀 기준'],
+ ['그룹 최저타', '79', '허태회 · 3회 기록'],
+ ['카드에 찍힌 버디', totalBird, '허프로 ' + G['허태회'].birdies + '개로 최다'],
+ ['필드 이글 · 스크린 홀인원', '2 · 1', '허프로·김대 이글, 김대 홀인원']]
+ .forEach(([l, v, f]) => $('#golfKpis').append(el('div', { className: 'card kpi' }, `<div class="lab">${l}</div><div class="val">${v}</div><div class="foot">${f}</div>`)));
+const ins = [
+  `<b>허프로는 독보적인 1강.</b> 동반 라운드 ${G['허태회'].group_rounds}번 중 ${G['허태회'].wins}번 1등, 평균 순위 ${G['허태회'].avg_rank}위. 26번의 기록 중 22번이 90타 미만이에요.`,
+  `<b>가장 치열한 라이벌은 김대 vs 쉠보.</b> 맞대결 ${D.h2h['김대중']['이충호'].join('-').replace(/-(\d+)$/, ' (무 $1)')}로 김대 우세. 그래도 쉠보는 2025년 골드CC에서 88타 라베를 했어요.`,
+  `<b>전반보다 후반에 강한 골미들.</b> 모든 멤버가 후반 평균이 더 좋아요. 허프로 ${G['허태회'].front}→${G['허태회'].back}, 쉠보 ${G['이충호'].front}→${G['이충호'].back}.`,
+  `<b>가장 꾸준한 사람은 허프로·쉠보·건희.</b> 표준편차가 4점대 이하라 기복이 적어요. 홍짱은 ±${G['박기홍'].sd}로 롤러코스터. 깨백은 아직 진행형이에요.`,
+];
+ins.forEach(h => $('#insights').append(el('div', { className: 'insight' }, h)));
+
+/* tables */
+function rowHTML(cells) { return '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>'; }
+const nameCell = n => `<span class="dot" style="background:${PC(n)}"></span>${n}`;
+const yrs = Object.keys(D.by_year);
+$('#yearTable').innerHTML = '<tr><th>멤버</th>' + yrs.map(y => `<th>${y}</th>`).join('') + '</tr>' +
+  N.map(n => rowHTML([nameCell(n), ...yrs.map(y => D.by_year[y][n] ?? '<span class="muted">–</span>')])).join('');
+$('#h2hTable').innerHTML = '<tr><th>vs</th>' + N.map(n => `<th>${SHORT[n]}</th>`).join('') + '</tr>' +
+  N.map(a => rowHTML([nameCell(a), ...N.map(b => {
+    if (a === b) return '<span class="muted">·</span>';
+    const [w, l, t] = D.h2h[a][b]; if (!w && !l && !t) return '<span class="muted">–</span>';
+    const col = w > l ? 'var(--green-2)' : w < l ? 'var(--ink-3)' : 'var(--ink)';
+    return `<span class="cell" style="color:${col};font-weight:700">${w}–${l}</span>${t ? `<span class="muted"> (${t})</span>` : ''}`;
+  })])).join('');
+$('#detailTable').innerHTML = '<tr><th>멤버</th><th>라운드</th><th>평균</th><th>최근5</th><th>표준편차</th><th>전반</th><th>후반</th><th>평균순위</th></tr>' +
+  N.map(n => { const g = G[n]; return rowHTML([nameCell(n), g.n, g.avg, g.recent, g.sd, g.front ?? '–', g.back ?? '–', g.avg_rank ?? '–']); }).join('');
+$('#venueTable').innerHTML = '<tr><th>골프장</th><th>라운드</th><th>평균</th></tr>' + D.venues.map(v => rowHTML([v.name, v.rounds, v.avg])).join('');
+
+function cardLink(r) { return r.card ? `<span class="sc-link" data-card="${r.card}" data-cap="${fmtD(r.date)} ${esc(r.venue)}">${fmtD(r.date)}</span>` : fmtD(r.date); }
+$('#roundTable').innerHTML = '<tr><th>날짜</th><th style="text-align:left">골프장</th>' + N.map(n => `<th>${SHORT[n]}</th>`).join('') + '<th style="text-align:left">메모</th></tr>' +
+  [...D.rounds].reverse().map(r => {
+    const min = Math.min(...Object.values(r.scores));
+    return rowHTML([cardLink(r), `<span style="float:left">${esc(r.venue)}${r.group ? '' : ' <span class="chip">개인</span>'}</span>`,
+      ...N.map(n => r.scores[n] == null ? '<span class="muted">·</span>' : `<span class="${Object.keys(r.scores).length > 1 && r.scores[n] === min ? 'best' : ''}" style="${Object.keys(r.scores).length > 1 && r.scores[n] === min ? 'font-weight:900;color:var(--green)' : ''}">${r.scores[n]}</span>${r.birdies[n] ? ' 🐦'.repeat(Math.min(r.birdies[n], 3)) : ''}`),
+      `<span style="float:left" class="muted">${esc(r.note)}</span>`]);
+  }).join('');
+$('#screenTable').innerHTML = '<tr><th>날짜</th><th style="text-align:left">장소</th>' + N.map(n => `<th>${SHORT[n]}</th>`).join('') + '<th style="text-align:left">메모</th></tr>' +
+  [...D.screen].reverse().map(r => {
+    const min = Math.min(...Object.values(r.scores));
+    return rowHTML([cardLink(r), `<span style="float:left">${esc(r.venue)}</span>`, ...N.map(n => r.scores[n] == null ? '<span class="muted">·</span>' : (r.scores[n] === min && Object.keys(r.scores).length > 1 ? `<b style="color:var(--green)">${r.scores[n]}</b>` : r.scores[n])), `<span style="float:left" class="muted">${esc(r.note)}</span>`]);
+  }).join('');
+document.addEventListener('click', e => {
+  const t = e.target.closest('.sc-link'); if (!t) return;
+  openLB([{ src: 'photos/' + t.dataset.card, cap: t.dataset.cap }], 0);
+});
+
+/* hall of fame */
+[['🏆', '그룹 최저타 79', '허태회 · 베어즈베스트 청라, 경문고 메달리스트, 자유CC 프로암'],
+ ['🦅', '이글맨 김대중', '2023.10 한양파인 15번홀 필드 이글 · 스크린 이글 다수'],
+ ['🕳️', '스크린 홀인원', '김대중 · 2023.09.21 H1 CLUB 5번홀'],
+ ['🎯', '김대 필드 라베 85 → 80', '2023.09.23 파주CC 85타, 2주 뒤 한양파인 80타'],
+ ['🔥', '쉠보 라베 88타 · 2버디', '2025.07.23 골드CC 챔피언 · 장어집 라베파티'],
+ ['🐦', '홍짱 생애 첫 버디', '2023.10.22 유니아일랜드'],
+ ['😷', '마스크 골프맨', '쉠보 · 코로나 중 클럽72 92타 공동 1등 (2024.08.18)'],
+ ['⚡', '김대 -8 노보기', '스크린 한맥CC 64타 8버디, "이글 복수 성공!"'],
+ ['🏃', '홍짱 마라톤 라베', 'JTBC 서울마라톤 10K 1:04:45 (2025.11.02)'],
+ ['🎙️', '허프로 셀럽 프로암', '2025.08.29 신한카드 셀럽 프로암 79타 · 며칠 전엔 이종범과 라운드']]
+ .forEach(([i, b, s]) => $('#fame').append(el('div', { className: 'card item' }, `<div class="ico">${i}</div><div><b>${b}</b><span>${s}</span></div>`)));
+
+/* awards */
+const topOf = (obj) => Object.entries(obj).sort((a, b) => b[1] - a[1])[0];
+const avgLen = topOf(D.stats.avg_len), kk = topOf(D.stats.kk), msg = topOf(D.stats.per_person), op = topOf(D.stats.opener), nt = topOf(D.stats.night), ph = topOf(D.stats.photos), eb = topOf(D.stats.early);
+[['💬', '수다왕', msg[0], msg[1].toLocaleString() + '개 메시지'], ['😂', 'ㅋㅋㅋ왕', kk[0], 'ㅋ ' + kk[1].toLocaleString() + '번'],
+ ['☀️', '하루를 여는 사람', op[0], op[1] + '일 첫 메시지'], ['🦉', '올빼미', nt[0], '밤 11시~새벽 4시 ' + nt[1] + '개'],
+ ['🐓', '새벽형 골미', eb[0], '새벽 4~7시 ' + eb[1] + '개'],
+ ['📸', '전속 사진사', ph[0], '사진·영상 ' + ph[1] + '번'], ['📝', '장문왕', avgLen[0], '메시지당 평균 ' + avgLen[1] + '자'],
+ ['🔥', '가장 뜨거운 날', fmtD(D.stats.busiest[0][0]), D.stats.busiest[0][1] + '개 메시지']]
+ .forEach(([i, t, w, v]) => $('#awards').append(el('div', { className: 'card award' }, `<div class="ico">${i}</div><div class="t">${t}</div><div class="w">${w}</div><div class="v">${v}</div>`)));
+const KW = D.stats.keywords;
+const kwList = ['라베', '스크린', '고고', '가즈아', '홍짱', '김대', '쉠보', '허프로', '충', '라운딩', '란딩', '필드', '버디', '이글', '생일', '축하', '깨백', '연습장', '내기', '맥주', '여행', '야구', '김프로'];
+const mx = Math.max(...kwList.map(k => KW[k] || 0));
+kwList.sort((a, b) => (KW[b] || 0) - (KW[a] || 0)).forEach((k, i) => {
+  const v = KW[k] || 0; const sz = 14 + 30 * Math.sqrt(v / mx);
+  const s = el('span', { textContent: k, title: v + '회' }); s.style.fontSize = sz + 'px'; s.style.opacity = .55 + .45 * (v / mx);
+  if (i % 3 === 1) s.style.color = 'var(--gold)';
+  $('#words').append(s);
+});
+
+/* quotes + jokes */
+const QPICK = D.quotes.filter((q, i, a) => a.findIndex(x => x.text === q.text) === i);
+QPICK.forEach(q => $('#quoteList').append(el('div', { className: 'card q' }, `<blockquote>“${esc(q.text)}”</blockquote><div class="by"><span class="dot" style="background:${PC(q.who) || 'var(--ink-3)'}"></span>${esc(q.who)} · ${fmtD(q.date)}</div>`)));
+D.jokes.forEach(j => $('#jokes').append(el('div', { className: 'card' }, esc(j))));
+
+/* gallery */
+const galYears = [...new Set(D.gallery.map(g => g.date.slice(0, 4)))];
+const GS = { y: 'all', n: 40 };
+seg($('#galSeg'), Object.fromEntries([['all', '전체'], ...galYears.map(y => [y, y])]), () => GS.y, k => { GS.y = k; GS.n = 40; renderGal(); });
+function renderGal() {
+  const items = D.gallery.filter(g => GS.y === 'all' || g.date.startsWith(GS.y)).sort((a, b) => GS.y === 'all' ? b.q - a.q || a.file.localeCompare(b.file) : a.file.localeCompare(b.file));
+  const list = items.map(g => ({ src: 'photos/' + g.file, cap: fmtD(g.date) + ' · ' + g.caption }));
+  const box = $('#gal'); box.innerHTML = '';
+  items.slice(0, GS.n).forEach((g, i) => {
+    const f = el('figure', {}, `<img loading="lazy" src="photos/${g.file}" alt="${esc(g.caption)}"><figcaption>${fmtD(g.date)} · ${esc(g.caption)}</figcaption>`);
+    f.onclick = () => openLB(list, i); box.append(f);
+  });
+  $('#galMore').style.display = items.length > GS.n ? 'block' : 'none';
+}
+$('#galMore').onclick = () => { GS.n += 40; renderGal(); };
+renderGal();
+D.videos.forEach(v => {
+  const b = v.replace('.mp4', ''); const d = b.slice(0, 4) + '.' + b.slice(4, 6) + '.' + b.slice(6, 8);
+  $('#videos').append(el('div', {}, `<video controls preload="none" playsinline poster="videos/${b}.jpg" src="videos/${v}"></video><div class="vd">${d}</div>`));
+});
+
+/* nav highlight */
+const secs = [...document.querySelectorAll('section.sec')];
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) document.querySelectorAll('#navlinks a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+}), { rootMargin: '-40% 0px -55% 0px' });
+secs.forEach(s => io.observe(s));
+
+/* charts */
+const charts = {};
+const hidden = new Set();
+function legend(target, onToggle) {
+  target.innerHTML = '';
+  N.forEach(n => {
+    const b = el('button', {}, `<span class="dot" style="background:${PC(n)}"></span>${n}`);
+    if (hidden.has(target.id + n)) b.classList.add('off');
+    b.onclick = () => { const k = target.id + n; hidden.has(k) ? hidden.delete(k) : hidden.add(k); b.classList.toggle('off'); onToggle(); };
+    target.append(b);
+  });
+}
+function drawCharts() {
+  if (!window.Chart) return;
+  Object.values(charts).forEach(c => c.destroy());
+  const ink2 = css('--ink-2'), line = css('--line'), surf = css('--surface');
+  Chart.defaults.font.family = '"Noto Sans KR", sans-serif';
+  Chart.defaults.color = ink2;
+  const grid = { color: line, drawTicks: false }, tipOpt = { backgroundColor: css('--ink'), titleColor: css('--bg'), bodyColor: css('--bg'), padding: 10, cornerRadius: 6, boxPadding: 4 };
+
+  // trend
+  const trendDS = N.map(n => ({
+    label: n, borderColor: PC(n), backgroundColor: PC(n), pointBorderColor: surf, pointBorderWidth: 2, borderWidth: 2, pointRadius: 5, pointHoverRadius: 8, tension: .25,
+    hidden: hidden.has('trendLegend' + n),
+    data: D.rounds.filter(r => r.scores[n] != null).map(r => ({ x: +new Date(r.date), y: r.scores[n], venue: r.venue, d: r.date }))
+  }));
+  charts.trend = new Chart($('#trendChart'), {
+    type: 'line', data: { datasets: trendDS },
+    options: { maintainAspectRatio: false, interaction: { mode: 'nearest', intersect: false }, plugins: { legend: { display: false },
+      tooltip: { ...tipOpt, callbacks: { title: it => fmtD(it[0].raw.d) + ' · ' + it[0].raw.venue, label: it => ' ' + it.dataset.label + ' ' + it.raw.y + '타' } } },
+      scales: { x: { type: 'linear', grid, border: { display: false }, ticks: { padding: 8, callback: v => { const d = new Date(v); return d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0'); }, maxTicksLimit: 8 } },
+        y: { reverse: false, grid, border: { display: false }, ticks: { padding: 8 }, suggestedMin: 75, suggestedMax: 120, title: { display: true, text: '타수' } } } }
+  });
+  legend($('#trendLegend'), () => { N.forEach((n, i) => charts.trend.setDatasetVisibility(i, !hidden.has('trendLegend' + n))); charts.trend.update(); });
+
+  // avg vs best
+  charts.avg = new Chart($('#avgChart'), {
+    type: 'bar',
+    data: { labels: N, datasets: [
+      { label: '평균', data: N.map(n => G[n].avg), backgroundColor: N.map(PC), borderRadius: 4, borderSkipped: 'start', barPercentage: .7, categoryPercentage: .7 },
+      { label: '베스트', data: N.map(n => G[n].best), backgroundColor: N.map(n => PC(n) + '66'), borderColor: N.map(PC), borderWidth: 2, borderRadius: 4, borderSkipped: 'start', barPercentage: .7, categoryPercentage: .7 }] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: true, position: 'top', align: 'start', labels: { boxWidth: 12, boxHeight: 12 } }, tooltip: { ...tipOpt, callbacks: { label: it => ' ' + it.dataset.label + ' ' + it.raw + '타' } } },
+      scales: { x: { grid: { display: false }, border: { display: false } }, y: { min: 70, grid, border: { display: false }, ticks: { padding: 8 } } } }
+  });
+
+  // distribution
+  const bins = ['75–79', '80–84', '85–89', '90–94', '95–99', '100–104', '105–109', '110+'];
+  const bi = s => s >= 110 ? 7 : Math.max(0, Math.floor((s - 75) / 5));
+  charts.dist = new Chart($('#distChart'), {
+    type: 'bar',
+    data: { labels: bins, datasets: N.map(n => { const a = Array(8).fill(0); D.rounds.forEach(r => { if (r.scores[n] != null) a[bi(r.scores[n])]++; }); return { label: n, data: a, backgroundColor: PC(n), borderColor: surf, borderWidth: { top: 2 }, borderSkipped: false }; }) },
+    options: { maintainAspectRatio: false, plugins: { legend: { position: 'top', align: 'start', labels: { boxWidth: 12, boxHeight: 12 } }, tooltip: { ...tipOpt, callbacks: { label: it => ' ' + it.dataset.label + ' ' + it.raw + '회' } } },
+      scales: { x: { stacked: true, grid: { display: false }, border: { display: false } }, y: { stacked: true, grid, border: { display: false }, ticks: { precision: 0, padding: 8 } } } }
+  });
+
+  // monthly
+  const months = Object.keys(D.stats.monthly).sort();
+  charts.month = new Chart($('#monthChart'), {
+    type: 'bar',
+    data: { labels: months.map(m => m.replace('-', '.')), datasets: N.map(n => ({ label: n, data: months.map(m => D.stats.monthly[m][n]), backgroundColor: PC(n), hidden: hidden.has('monthLegend' + n), borderColor: surf, borderWidth: { top: 1 }, borderSkipped: false })) },
+    options: { maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { display: false }, tooltip: { ...tipOpt, itemSort: (a, b) => b.raw - a.raw, callbacks: { footer: it => '합계 ' + it.reduce((a, b) => a + b.raw, 0) + '개' } } },
+      scales: { x: { stacked: true, grid: { display: false }, border: { display: false }, ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 12 } }, y: { stacked: true, grid, border: { display: false }, ticks: { padding: 8 } } } }
+  });
+  legend($('#monthLegend'), () => { N.forEach((n, i) => charts.month.setDatasetVisibility(i, !hidden.has('monthLegend' + n))); charts.month.update(); });
+
+  // hourly
+  const hours = [...Array(24).keys()];
+  charts.hour = new Chart($('#hourChart'), {
+    type: 'bar', data: { labels: hours.map(h => h + '시'), datasets: [{ label: '메시지', data: hours.map(h => N.reduce((a, n) => a + D.stats.hourly[n][h], 0)), backgroundColor: css('--green-2'), borderRadius: 3, borderSkipped: 'start' }] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { ...tipOpt, callbacks: { label: it => ' ' + it.raw + '개' } } },
+      scales: { x: { grid: { display: false }, border: { display: false }, ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8 } }, y: { grid, border: { display: false }, ticks: { padding: 8 } } } }
+  });
+  const wd = ['월', '화', '수', '목', '금', '토', '일'];
+  charts.week = new Chart($('#weekChart'), {
+    type: 'bar', data: { labels: wd, datasets: [{ label: '메시지', data: D.stats.weekday, backgroundColor: wd.map((_, i) => i >= 5 ? css('--gold') : css('--green-2')), borderRadius: 4, borderSkipped: 'start' }] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { ...tipOpt, callbacks: { label: it => ' ' + it.raw + '개' } } },
+      scales: { x: { grid: { display: false }, border: { display: false } }, y: { grid, border: { display: false }, ticks: { padding: 8 } } } }
+  });
+}
+if (window.Chart) drawCharts(); else window.addEventListener('load', drawCharts);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawCharts);
+</script>
+</body>
+</html>
